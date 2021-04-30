@@ -1,0 +1,33 @@
+name: ci
+on:
+  push:
+    branches:
+      - '**'
+      - '!master'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: prepare test data
+        run: |
+          sed 's/3\.35\.0/3.36.0/' -i test/versions.tf
+          git add test/versions.tf
+          git config user.name "Dummy"
+          git config user.email "bot@renovateapp.com"
+          git commit -m "Test"
+      - name: run
+        uses: ./
+        with:
+          git_user: Dummy
+          git_email: 8390204+seqsense@users.noreply.github.com
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          push: no
+      - name: validate
+        run: |
+          grep 'version     = "3.36.0"' test/.terraform.lock.hcl
+          grep 'constraints = "3.36.0"' test/.terraform.lock.hcl
+          ! grep 'version     = "3.35.0"' test/.terraform.lock.hcl
+          ! grep 'constraints = "3.35.0"' test/.terraform.lock.hcl
