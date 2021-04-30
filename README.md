@@ -6,7 +6,7 @@ GitHub Action to update .terraform.lock.hcl
 Example to automatically fix `.terraform.lock.hcl` in Renovate Bot's pull requests.
 
 This action internally uses [tfutils/tfenv](https://github.com/tfutils/tfenv) to install Terraform.
-It can automatically detect your project's Terraform versions via tfenv.
+It can automatically detect your project's Terraform versions.
 
 See https://github.com/tfutils/tfenv#tfenv-install-version for more details.
 
