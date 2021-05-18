@@ -18,6 +18,8 @@ inputs:
     description: "Push to the branch? (no|yes|force)"
   lock_file_paths:
     description: "Space separated list of the paths to the directories of .terraform.lock.hcl. Automatically detected by default."
+  platforms:
+    description: "Space separated list of the platforms. Windows, 64-bit Linux and macOS are default."
 runs:
   using: "docker"
   image: "Dockerfile"
