@@ -47,6 +47,7 @@ do
   tfenv install
   echo -e 'terraform {\n  backend "local" {}\n}' > backend_override.tf
   rm -f .terraform.lock.hcl
+  terraform init
   terraform providers lock ${platform_opts}
   git add .terraform.lock.hcl
   rm -f backend_override.tf
