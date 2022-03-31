@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v3
       - name: prepare test data
         run: |
-          sed 's/3\.35\.0/3.36.0/' -i test/versions.tf
+          sed 's/4\.7\.0/4.8.0/' -i test/versions.tf
           git add test/versions.tf
           git config user.name "Dummy"
           git config user.email "bot@renovateapp.com"
@@ -27,7 +27,7 @@ jobs:
           push: no
       - name: validate
         run: |
-          grep 'version     = "3.36.0"' test/.terraform.lock.hcl
-          grep 'constraints = "3.36.0"' test/.terraform.lock.hcl
-          ! grep 'version     = "3.35.0"' test/.terraform.lock.hcl
-          ! grep 'constraints = "3.35.0"' test/.terraform.lock.hcl
+          grep 'version     = "4.8.0"' test/.terraform.lock.hcl
+          grep 'constraints = "4.8.0"' test/.terraform.lock.hcl
+          ! grep 'version     = "4.7.0"' test/.terraform.lock.hcl
+          ! grep 'constraints = "4.7.0"' test/.terraform.lock.hcl
