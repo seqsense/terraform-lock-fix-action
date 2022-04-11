@@ -33,7 +33,7 @@ git config user.name ${INPUT_GIT_USER}
 git config user.email ${INPUT_GIT_EMAIL}
 
 INPUT_LOCK_FILE_PATHS=${INPUT_LOCK_FILE_PATHS:-$(find . -name .terraform.lock.hcl | xargs -r -n1 dirname)}
-INPUT_PLATFORMS=${INPUT_PLATFORMS:-"windows_amd64 darwin_amd64 darwin_arm64 linux_amd64"}
+INPUT_PLATFORMS=${INPUT_PLATFORMS:-"windows_amd64 darwin_amd64 darwin_arm64 linux_amd64 linux_arm64"}
 platform_opts=""
 for platform in ${INPUT_PLATFORMS}
 do
