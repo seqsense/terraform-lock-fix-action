@@ -58,7 +58,7 @@ then
   echo "Up-to-date"
   exit 0
 fi
-
+# test
 case ${INPUT_COMMIT_STYLE:-add} in
   add)
     git add .;
