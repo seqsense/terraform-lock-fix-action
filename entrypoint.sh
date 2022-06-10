@@ -46,6 +46,7 @@ echo ${INPUT_LOCK_FILE_PATHS} | xargs -r -n1 echo | while read dir
 do
   cd ${dir}
   tfenv install
+  tfenv use
   echo -e 'terraform {\n  backend "local" {}\n}' > backend_override.tf
   rm -f .terraform.lock.hcl
   terraform init
