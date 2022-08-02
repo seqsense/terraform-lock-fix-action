@@ -16,7 +16,7 @@ jobs:
           sed 's/4\.7\.0/4.8.0/' -i test/versions.tf
           git add test/versions.tf
           git config user.name "Dummy"
-          git config user.email "bot@renovateapp.com"
+          git config user.email "29139614+renovate[bot]@users.noreply.github.com"
           git commit -m "Test"
       - name: run
         uses: ./
