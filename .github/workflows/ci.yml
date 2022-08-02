@@ -7,6 +7,11 @@ on:
 
 jobs:
   test:
+    strategy:
+      matrix:
+        renovate_email:
+          - bot@renovateapp.com
+          - 29139614+renovate[bot]@users.noreply.github.com
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -16,7 +21,7 @@ jobs:
           sed 's/4\.7\.0/4.8.0/' -i test/versions.tf
           git add test/versions.tf
           git config user.name "Dummy"
-          git config user.email "bot@renovateapp.com"
+          git config user.email "${{ matrix.renovate_email }}"
           git commit -m "Test"
       - name: run
         uses: ./
