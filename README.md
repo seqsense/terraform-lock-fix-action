@@ -1,6 +1,9 @@
 # terraform-lock-fix-action
 GitHub Action to update .terraform.lock.hcl
 
+> [!NOTE]  
+> Renovate now updates the Terraform lock file completely, so terraform-lock-fix-action is no longer needed in most cases.
+
 ## Example
 
 Example to automatically fix `.terraform.lock.hcl` in pull requests of [Renovate](https://github.com/renovatebot/renovate).
